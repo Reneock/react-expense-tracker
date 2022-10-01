@@ -36,7 +36,7 @@ class AddExpense extends Component {
           </Form.Group>
 
           <Form.Group style={{width: "300px", marginLeft:"50px"}} className="mb-3" controlId="formBasicPassword">
-            <Form.Label><strong>Amount</strong></Form.Label>
+            <Form.Label><strong>Amount ($)</strong></Form.Label>
             <Form.Control type="number" placeholder="Amount Paid" value={this.state.amount} name="amount" onChange={this.handleChange}/>
           </Form.Group>
 

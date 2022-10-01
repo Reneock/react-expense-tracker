@@ -32,7 +32,7 @@ const Expense = (props) => {
             <Card.Text>
               <p> <strong>Item/Service:</strong> <br/>{props.expenseInfo.item}  </p>
               <p> <strong>Date:</strong> <br/>  {props.expenseInfo.date}  </p>
-              <p> <strong>Amount:</strong> <br/> {props.expenseInfo.amount}  </p>
+              <p> <strong>Amount ($):</strong> <br/> {props.expenseInfo.amount}  </p>
               <p> <strong>Category: </strong> <br/> {props.expenseInfo.category}  </p>
             </Card.Text>
             <Card.Link href="#">
