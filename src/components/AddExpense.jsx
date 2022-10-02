@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Button} from 'react-bootstrap';
+import {addExpense} from '../actions/expensesActions';
+import {connect} from 'react-redux';
+import {v4 as uuid} from 'uuid';
 
 class AddExpense extends Component {
   constructor(props){
@@ -16,7 +19,7 @@ class AddExpense extends Component {
 
   handleSubmit=(e)=>{
     e.preventDefault();
-    this.props.addExpense(this.state);
+    this.props.addExpense({id: uuid(), item: this.state.item, date: this.state.date, amount: this.state.amount, category: this.state.category,});
     this.setState({item:"", date:"", amount: "", category:""});
   };
 
@@ -62,4 +65,8 @@ class AddExpense extends Component {
   }
 }
 
-export default AddExpense;
+const mapDispatchToProps = {
+  addExpense,
+}
+
+export default connect (null, mapDispatchToProps) (AddExpense);

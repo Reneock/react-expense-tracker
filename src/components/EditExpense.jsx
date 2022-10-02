@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import { editExpense } from "../actions/expensesActions";
 
 class EditExpense extends Component {
   constructor(props){
@@ -21,8 +23,7 @@ class EditExpense extends Component {
 
   handleSubmit=(e)=>{
     e.preventDefault();
-    //this.props.addNotebook(this.state); to edit below code is introduced
-    this.props.editExpense(this.state.id, this.state);
+    this.props.editExpense({id: this.state.id, item: this.state.item, date: this.state.date, amount: this.state.amount, category: this.state.category,});
     this.setState({item:"", date:"", amount: "", category:""});
     this.props.closeModal();
   };
@@ -69,4 +70,8 @@ class EditExpense extends Component {
   }
 }
 
-export default EditExpense;
+const mapDispatchToProps = {
+  editExpense,
+}
+
+export default connect (null, mapDispatchToProps) (EditExpense);

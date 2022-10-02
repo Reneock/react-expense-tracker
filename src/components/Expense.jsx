@@ -1,16 +1,20 @@
 import React, {useState} from 'react';
 import { Card, Col, Button, Modal } from 'react-bootstrap';
 import EditExpense from './EditExpense';
+import { useDispatch } from 'react-redux';
+import { deleteExpense } from '../actions/expensesActions';
 
 const Expense = (props) => {
   
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const dispatch = useDispatch();
 
   const handleDelete = (e) => {
     e.preventDefault();
-    props.deleteExpense(props.expenseInfo.id);
+    dispatch(deleteExpense(props.expenseInfo.id));
+    //props.deleteExpense(props.expenseInfo.id);
   };
 
   return (
